@@ -5,14 +5,14 @@ using StackExchange.Redis;
 namespace EquipmentRental.Services.BasketService.Repository
 {
 
-    public interface IBasketRepository
+    public interface IBasketRepository : IRepository<Basket>
     {
         Basket Save(Basket basket);
         Basket ById(int id);
         Basket Update(Basket basket);
     }
 
-    public class BasketRepository : RedisRepository, IBasketRepository
+    public class BasketRepository : RedisRepository<Basket>, IBasketRepository
     {
         private readonly IConnectionMultiplexer _redis;
 
@@ -29,7 +29,7 @@ namespace EquipmentRental.Services.BasketService.Repository
 
         public Basket ById(int id)
         {
-            return Get<Basket>(id);
+            return Get(id);
         }
 
         public Basket Update(Basket basket)

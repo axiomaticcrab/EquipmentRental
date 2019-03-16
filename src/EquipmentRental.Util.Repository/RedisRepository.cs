@@ -5,7 +5,15 @@ using KeyNotFoundException = EquipmentRental.Util.Repository.Exception.KeyNotFou
 
 namespace EquipmentRental.Util.Repository
 {
-    public class RedisRepository
+    public interface IRepository<T>
+    {
+        T GetById(int id);
+        List<T> GetMultiple(List<int> ids);
+        bool Exists(int id);
+        void Save(T item);
+    }
+
+    public class RedisRepository<T> : IRepository<T>
     {
         private readonly IConnectionMultiplexer _redisConnection;
 
@@ -20,12 +28,12 @@ namespace EquipmentRental.Util.Repository
             _namespace = nameSpace;
         }
 
-        public T Get<T>(int id)
+        public T Get(int id)
         {
-            return Get<T>(id.ToString());
+            return Get(id.ToString());
         }
 
-        public T Get<T>(string keySuffix)
+        public T Get(string keySuffix)
         {
             var key = MakeKey(keySuffix);
             var database = _redisConnection.GetDatabase();
@@ -51,9 +59,24 @@ namespace EquipmentRental.Util.Repository
             return items;
         }
 
+        public T GetById(int id)
+        {
+            return Get(id);
+        }
+
+        public List<T> GetMultiple(List<int> ids)
+        {
+            return GetMultiple<T>(ids);
+        }
+
         public bool Exists(int id)
         {
             return Exists(id.ToString());
+        }
+
+        public void Save(T item)
+        {
+            throw new System.NotImplementedException();
         }
 
         public bool Exists(string keySuffix)

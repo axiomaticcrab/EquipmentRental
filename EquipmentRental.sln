@@ -19,6 +19,12 @@ Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EquipmentRental.Services.PricingService", "src\EquipmentRental.Services.PricingService\EquipmentRental.Services.PricingService.csproj", "{75D83CFE-819F-442D-B06A-0F0C125FEFB8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Pricing", "Pricing", "{E340A42C-7B4B-4C34-9BB5-846757DB4B08}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EquipmentRental.Services.PricingService.Domain", "src\EquipmentRental.Services.PricingService.Domain\EquipmentRental.Services.PricingService.Domain.csproj", "{3141A499-3492-425B-8D93-509ADC7EC569}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EquipmentRental.Services.Pricing.PricingService.Command", "src\EquipmentRental.Services.Pricing.PricingService.Command\EquipmentRental.Services.Pricing.PricingService.Command.csproj", "{CCAE5EDE-A835-48B6-90BA-181E30F973AB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +55,14 @@ Global
 		{75D83CFE-819F-442D-B06A-0F0C125FEFB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75D83CFE-819F-442D-B06A-0F0C125FEFB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75D83CFE-819F-442D-B06A-0F0C125FEFB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3141A499-3492-425B-8D93-509ADC7EC569}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3141A499-3492-425B-8D93-509ADC7EC569}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3141A499-3492-425B-8D93-509ADC7EC569}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3141A499-3492-425B-8D93-509ADC7EC569}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCAE5EDE-A835-48B6-90BA-181E30F973AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCAE5EDE-A835-48B6-90BA-181E30F973AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCAE5EDE-A835-48B6-90BA-181E30F973AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCAE5EDE-A835-48B6-90BA-181E30F973AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,7 +71,10 @@ Global
 		{4BF2B14D-C5A5-4B7A-A0E7-553283E54580} = {552EF44A-9E62-404C-947A-37A23BC2C566}
 		{BC34463D-5509-49BF-959F-9C0E94667BF7} = {552EF44A-9E62-404C-947A-37A23BC2C566}
 		{630BC91D-7F9A-49E5-8C9F-74AB524ECAFC} = {EF8E22FA-1E1D-4250-81BF-DF145AA74911}
-		{75D83CFE-819F-442D-B06A-0F0C125FEFB8} = {552EF44A-9E62-404C-947A-37A23BC2C566}
+		{75D83CFE-819F-442D-B06A-0F0C125FEFB8} = {E340A42C-7B4B-4C34-9BB5-846757DB4B08}
+		{E340A42C-7B4B-4C34-9BB5-846757DB4B08} = {552EF44A-9E62-404C-947A-37A23BC2C566}
+		{3141A499-3492-425B-8D93-509ADC7EC569} = {E340A42C-7B4B-4C34-9BB5-846757DB4B08}
+		{CCAE5EDE-A835-48B6-90BA-181E30F973AB} = {E340A42C-7B4B-4C34-9BB5-846757DB4B08}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B49E1B54-7A72-42FF-9FDE-49D1292D82B0}

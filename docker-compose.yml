@@ -43,6 +43,18 @@ services:
     ports:
       - "5103:80"
 
+  equipmentrental.services.pricing.pricingservice.command:
+    image: ${DOCKER_REGISTRY-}equipmentrentalservicespricingpricingservicecommand
+    build:
+      context: .
+      dockerfile: src\EquipmentRental.Services.Pricing.PricingService.Command\Dockerfile
+    depends_on:
+      - pricingredis
+    links:
+      - pricingredis
+    ports:
+      - "5104:80"
+
   basketredis:
     image: redis:latest
     ports:
