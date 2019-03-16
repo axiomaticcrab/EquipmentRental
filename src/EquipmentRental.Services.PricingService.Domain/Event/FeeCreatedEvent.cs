@@ -47,4 +47,23 @@ namespace EquipmentRental.Services.PricingService.Domain.Event
             Points = points;
         }
     }
+
+    public class PricingCreatedEvent : BaseEvent
+    {
+        public readonly int PricingId;
+        public readonly EquipmentType EquipmentType;
+        public readonly int StartingDay;
+        public readonly int EndingDay;
+        public readonly string FeeTag;
+
+        public PricingCreatedEvent(Guid id, int pricingId, EquipmentType equipmentType, int startingDay, int endingDay, string feeTag)
+        {
+            PricingId = pricingId;
+            EquipmentType = equipmentType;
+            StartingDay = startingDay;
+            EndingDay = endingDay;
+            FeeTag = feeTag;
+            Id = id;
+        }
+    }
 }

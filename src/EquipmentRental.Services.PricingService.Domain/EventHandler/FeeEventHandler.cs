@@ -57,4 +57,28 @@ namespace EquipmentRental.Services.PricingService.Domain.EventHandler
             return Task.CompletedTask;
         }
     }
+
+    public class PricingEventHandler : IEventHandler<PricingCreatedEvent>
+    {
+        private readonly IPricingRepository _repository;
+
+        public PricingEventHandler(IPricingRepository repository)
+        {
+            _repository = repository;
+        }
+
+        public Task Handle(PricingCreatedEvent message)
+        {
+            _repository.Save(new PricingReadModel
+            {
+                EquipmentType = message.EquipmentType,
+                EntityId = message.PricingId,
+                FeeTag = message.FeeTag,
+                AggregateId = message.Id,
+                StartingDay = message.StartingDay,
+                EndingDay = message.EndingDay
+            });
+            return Task.CompletedTask;
+        }
+    }
 }

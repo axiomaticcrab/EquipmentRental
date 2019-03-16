@@ -6,12 +6,12 @@ namespace EquipmentRental.Services.Pricing.PricingService.Command.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class LoyaltyController : ControllerBase
+    public class PricingController : ControllerBase
     {
         private readonly ICommandSender _commandSender;
-        private readonly ILoyaltyRepository _repository;
+        private readonly IPricingRepository _repository;
 
-        public LoyaltyController(ICommandSender commandSender, ILoyaltyRepository repository)
+        public PricingController(ICommandSender commandSender, IPricingRepository repository)
         {
             _commandSender = commandSender;
             _repository = repository;

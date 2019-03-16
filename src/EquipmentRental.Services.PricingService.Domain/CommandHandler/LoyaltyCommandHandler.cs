@@ -21,5 +21,23 @@ namespace EquipmentRental.Services.PricingService.Domain.CommandHandler
             _session.Add(loyalty);
             return _session.Commit();
         }
+
+        public class PricingCommandHandler : ICommandHandler<CreatePricingCommand>
+        {
+            private readonly ISession _session;
+
+            public PricingCommandHandler(ISession session)
+            {
+                _session = session;
+            }
+
+            public Task Handle(CreatePricingCommand message)
+            {
+                var pricing = new Pricing(message.Id, message.PricingId, message.EquipmentType, message.StartingDay,
+                    message.EndingDay, message.FeeTag);
+                _session.Add(pricing);
+                return _session.Commit();
+            }
+        }
     }
 }

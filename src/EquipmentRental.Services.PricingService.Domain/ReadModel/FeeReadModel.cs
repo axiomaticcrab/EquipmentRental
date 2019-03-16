@@ -17,4 +17,13 @@ namespace EquipmentRental.Services.PricingService.Domain.ReadModel
         public EquipmentType EquipmentType { get; set; }
         public int Points { get; set; }
     }
+
+    public class PricingReadModel : Entity
+    {
+        public Guid AggregateId { get; set; }
+        public EquipmentType EquipmentType { get; set; }
+        public int StartingDay { get; set; }
+        public int EndingDay { get; set; }
+        public string FeeTag { get; set; }
+    }
 }

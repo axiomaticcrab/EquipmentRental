@@ -9,4 +9,8 @@ namespace EquipmentRental.Services.PricingService.Domain.ReadModel.Repository.Co
     public interface ILoyaltyRepository : IRepository<LoyaltyReadModel>
     {
     }
+
+    public interface IPricingRepository : IRepository<PricingReadModel>
+    {
+    }
 }
