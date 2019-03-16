@@ -19,7 +19,6 @@ services:
     ports:
       - "5100:80"
 
-
   equipmentrental.services.equipmentservice:
     image: ${DOCKER_REGISTRY-}equipmentrentalservicesequipmentservice
     build:
@@ -28,9 +27,28 @@ services:
     ports:
       - "5101:80"
 
+  equipmentrental.services.pricingservice:
+    image: ${DOCKER_REGISTRY-}equipmentrentalservicespricingservice
+    build:
+      context: .
+      dockerfile: src\EquipmentRental.Services.PricingService\Dockerfile
+    depends_on:
+      - pricingredis
+    links:
+      - pricingredis
+    ports:
+      - "5103:80"
+
   basketredis:
     image: redis:latest
     ports:
       - '6379:6379'
     expose:
       - "6379"
+
+  pricingredis:
+    image: redis:latest
+    ports:
+      - '5102:6379'
+    expose:
+      - "5102"
