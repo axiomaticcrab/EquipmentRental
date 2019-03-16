@@ -1,0 +1,36 @@
+version: '3.4'
+
+services:
+  equipmentrental.ui:
+    image: ${DOCKER_REGISTRY-}equipmentrentalui
+    build:
+      context: .
+      dockerfile: src\EquipmentRental.Ui\Dockerfile
+
+  equipmentrental.services.basketservice:
+    image: ${DOCKER_REGISTRY-}equipmentrentalservicesbasketservice
+    build:
+      context: .
+      dockerfile: src\EquipmentRental.Services.BasketService\Dockerfile
+    depends_on:
+      - basketredis
+    links:
+      - basketredis
+    ports:
+      - "5100:80"
+
+
+  equipmentrental.services.equipmentservice:
+    image: ${DOCKER_REGISTRY-}equipmentrentalservicesequipmentservice
+    build:
+      context: .
+      dockerfile: src\EquipmentRental.Services.EquipmentService\Dockerfile
+    ports:
+      - "5101:80"
+
+  basketredis:
+    image: redis:latest
+    ports:
+      - '6379:6379'
+    expose:
+      - "6379"
