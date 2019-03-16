@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 
-namespace EquipmentRental.Services.EquipmentService
+namespace EquipmentRental.Services.BasketService
 {
     public class Program
     {

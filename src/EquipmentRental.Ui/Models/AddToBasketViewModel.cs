@@ -1,4 +1,4 @@
-﻿namespace EquipmentRental.Ui.Controllers
+﻿namespace EquipmentRental.Ui.Models
 {
     public class AddToBasketViewModel
     {

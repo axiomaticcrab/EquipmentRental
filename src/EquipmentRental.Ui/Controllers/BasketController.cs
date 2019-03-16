@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using EquipmentRental.Ui.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace EquipmentRental.Ui.Controllers
 {

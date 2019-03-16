@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using EquipmentRental.Services.EquipmentService.Model;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,7 +8,6 @@ namespace EquipmentRental.Services.EquipmentService.Controllers
     [ApiController]
     public class EquipmentController : ControllerBase
     {
-        // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<Equipment>> Get()
         {

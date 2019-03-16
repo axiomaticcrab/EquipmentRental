@@ -1,5 +1,4 @@
-﻿using System;
-using System.Text;
+﻿using System.Text;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EquipmentRental.Ui.Controllers
