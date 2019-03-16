@@ -1,0 +1,7 @@
+﻿@model EquipmentRental.Ui.Controllers.AddToBasketViewModel
+
+<form asp-controller="Basket" asp-action="AddToBasket">
+    @Html.TextBoxFor(x=>x.RentalDays)
+    <input type="submit" value="Add To Chart"  class="btn btn-default" />
+    <input type="hidden" asp-for="@Model.EquipmentName" name="name" />
+</form>

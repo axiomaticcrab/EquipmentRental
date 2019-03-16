@@ -1,0 +1,37 @@
+﻿@using EquipmentRental.Ui.Controllers
+@model IEnumerable<EquipmentViewModel>
+
+@{
+    ViewData["Title"] = "Construction Equipments";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Construction Equipments</h2>
+
+<div>
+    <h5>Click to rent</h5>
+    <hr />
+    <dl class="dl-horizontal">
+        @{
+            foreach (var equipmentViewModel in Model)
+            {
+                <dd>
+                    @Html.DisplayFor(modelItem => equipmentViewModel.Name) &nbsp;
+                    Type:
+                    @Html.DisplayFor(modelItem => equipmentViewModel.EquipmentType)
+                    
+                    <partial 
+                        name="../Basket/_addToBasket" 
+                        model="new AddToBasketViewModel { RentalDays = equipmentViewModel.RentalDays, EquipmentName = equipmentViewModel.Name }"/>
+                </dd>
+            }
+        }
+    </dl>
+    <dl class="dl-horizontal">
+        <partial 
+            name="../Invoice/_generateInvoice" />
+    </dl>
+</div>
+<div>
+
+</div>

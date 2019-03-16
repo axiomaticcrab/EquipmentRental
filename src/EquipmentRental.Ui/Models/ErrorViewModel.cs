@@ -1,5 +1,3 @@
-using System;
-
 namespace EquipmentRental.Ui.Models
 {
     public class ErrorViewModel
