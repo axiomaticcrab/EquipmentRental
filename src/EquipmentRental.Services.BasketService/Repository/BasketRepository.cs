@@ -7,7 +7,7 @@ namespace EquipmentRental.Services.BasketService.Repository
 
     public interface IBasketRepository
     {
-        Basket Save(int id);
+        Basket Save(Basket basket);
         Basket ById(int id);
         Basket Update(Basket basket);
     }
@@ -21,10 +21,9 @@ namespace EquipmentRental.Services.BasketService.Repository
             _redis = redis;
         }
 
-        public Basket Save(int id)
+        public Basket Save(Basket basket)
         {
-            var basket = new Basket { Id = id };
-            Save(id, basket);
+            Save(basket.Id, basket);
             return basket;
         }
 

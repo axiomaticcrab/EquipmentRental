@@ -6,6 +6,10 @@ services:
     build:
       context: .
       dockerfile: src\EquipmentRental.Ui\Dockerfile
+    links:
+      - equipmentrental.services.basketservice
+      - equipmentrental.services.equipmentservice
+      - equipmentrental.services.pricingservice
 
   equipmentrental.services.basketservice:
     image: ${DOCKER_REGISTRY-}equipmentrentalservicesbasketservice

@@ -1,4 +1,5 @@
 ﻿using System;
+using EquipmentRental.Services.BasketService.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -21,7 +22,9 @@ namespace EquipmentRental.Services.BasketService
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             var redis = ConnectionMultiplexer.Connect("basketredis");
-            services.AddSingleton(typeof(ConnectionMultiplexer), redis);
+            services.AddSingleton(typeof(IConnectionMultiplexer), redis);
+
+            services.AddScoped<IBasketRepository, BasketRepository>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 

@@ -1,7 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using EquipmentRental.Services.BasketService.Repository;
-using EquipmentRental.Util.Repository.Exception;
 using Microsoft.AspNetCore.Mvc;
+using KeyNotFoundException = EquipmentRental.Util.Repository.Exception.KeyNotFoundException;
 
 namespace EquipmentRental.Services.BasketService.Controllers
 {
@@ -16,7 +17,7 @@ namespace EquipmentRental.Services.BasketService.Controllers
             _basketRepository = basketRepository;
         }
 
-        [HttpGet]
+        [HttpGet("{id}")]
         public ActionResult<Basket> GetBasketById(int id)
         {
             try
@@ -25,7 +26,7 @@ namespace EquipmentRental.Services.BasketService.Controllers
             }
             catch (KeyNotFoundException)
             {
-                return _basketRepository.Save(id);
+                return _basketRepository.Save(new Basket{Id = id, LineItems = new List<LineItem>()});
             }
 
 
