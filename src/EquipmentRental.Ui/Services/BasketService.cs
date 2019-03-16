@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using EquipmentRental.Ui.Models.Basket;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace EquipmentRental.Ui.Services
 {
@@ -18,12 +20,20 @@ namespace EquipmentRental.Ui.Services
             _client = client;
         }
 
-        [HttpGet]
         public async Task<BasketModel> GetBasketById(int basketId)
         {
             var response = await _client.GetAsync($"/api/basket/{basketId}");
 
             response.EnsureSuccessStatusCode();
+
+            return await response.Content.ReadAsAsync<BasketModel>();
+        }
+
+        public async Task<BasketModel> UpdateBasket(BasketModel basketModel)
+        {
+            var response=
+            await _client.PutAsync("/api/basket",
+                new StringContent(JsonConvert.SerializeObject(basketModel), Encoding.UTF8, "application/json"));
 
             return await response.Content.ReadAsAsync<BasketModel>();
         }

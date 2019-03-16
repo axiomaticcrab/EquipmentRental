@@ -26,15 +26,16 @@ namespace EquipmentRental.Services.BasketService.Controllers
             }
             catch (KeyNotFoundException)
             {
-                return _basketRepository.Save(new Basket{Id = id, LineItems = new List<LineItem>()});
+                return _basketRepository.Save(new Basket { Id = id, LineItems = new List<LineItem>() });
             }
 
 
         }
 
         [HttpPut]
-        public void UpdateBasket([FromBody] Basket basket)
+        public Basket UpdateBasket([FromBody] Basket basket)
         {
+            return _basketRepository.Save(basket);
         }
     }
 }
