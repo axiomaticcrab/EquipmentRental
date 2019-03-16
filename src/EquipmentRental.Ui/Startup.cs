@@ -22,6 +22,7 @@ namespace EquipmentRental.Ui
         {
             services.AddHttpClient<BasketService>();
             services.AddHttpClient<EquipmentService>();
+            services.AddHttpClient<PricingService>();
 
             services.Configure<CookiePolicyOptions>(options =>
             {
@@ -31,7 +32,11 @@ namespace EquipmentRental.Ui
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            return services.BuildServiceProvider();
+            var provider =  services.BuildServiceProvider();
+
+            ((PricingService) provider.GetService(typeof(PricingService))).InitPricingService();
+            return provider;
+
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

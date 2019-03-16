@@ -4,7 +4,7 @@ namespace EquipmentRental.Ui.Models.Basket
 {
     public class BasketModel
     {
-        public int Id { get; set; }
+        public int EntityId { get; set; }
         public List<LineItemModel> LineItems { get; set; }
 
         public BasketModel()

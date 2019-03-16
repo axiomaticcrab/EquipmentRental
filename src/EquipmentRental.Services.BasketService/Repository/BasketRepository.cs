@@ -23,7 +23,7 @@ namespace EquipmentRental.Services.BasketService.Repository
 
         public Basket Save(Basket basket)
         {
-            Save(basket.Id, basket);
+            Save(basket.EntityId, basket);
             return basket;
         }
 
@@ -34,7 +34,7 @@ namespace EquipmentRental.Services.BasketService.Repository
 
         public Basket Update(Basket basket)
         {
-            Save(basket.Id, basket);
+            Save(basket.EntityId, basket);
             return basket;
         }
     }

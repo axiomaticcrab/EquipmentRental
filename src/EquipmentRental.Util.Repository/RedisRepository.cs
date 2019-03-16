@@ -5,6 +5,11 @@ using KeyNotFoundException = EquipmentRental.Util.Repository.Exception.KeyNotFou
 
 namespace EquipmentRental.Util.Repository
 {
+    public class Entity
+    {
+        public int EntityId { get; set; }
+    }
+
     public interface IRepository<T>
     {
         T GetById(int id);
@@ -13,7 +18,7 @@ namespace EquipmentRental.Util.Repository
         void Save(T item);
     }
 
-    public class RedisRepository<T> : IRepository<T>
+    public class RedisRepository<T> : IRepository<T> where T : Entity
     {
         private readonly IConnectionMultiplexer _redisConnection;
 
@@ -76,7 +81,7 @@ namespace EquipmentRental.Util.Repository
 
         public void Save(T item)
         {
-            throw new System.NotImplementedException();
+            Save(item.EntityId, item);
         }
 
         public bool Exists(string keySuffix)

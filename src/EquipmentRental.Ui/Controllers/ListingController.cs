@@ -12,11 +12,13 @@ namespace EquipmentRental.Ui.Controllers
     {
         private readonly BasketService _basketService;
         private readonly EquipmentService _equipmentService;
+        private readonly PricingService _pricingService;
 
-        public ListingController(BasketService basketService, EquipmentService equipmentService)
+        public ListingController(BasketService basketService, EquipmentService equipmentService,PricingService pricingService)
         {
             _basketService = basketService;
             _equipmentService = equipmentService;
+            _pricingService = pricingService;
         }
 
         [HttpGet()]

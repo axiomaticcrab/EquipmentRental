@@ -22,7 +22,7 @@ namespace EquipmentRental.Services.PricingService.Domain.EventHandler
             _repository.Save(new FeeReadModel
             {
                 Cost = message.Cost,
-                FeeId = message.FeeId,
+                EntityId = message.FeeId,
                 Tag = message.Tag,
                 AggregateId = message.Id
             });

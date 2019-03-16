@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
+using EquipmentRental.Util.Repository;
 
 namespace EquipmentRental.Services.BasketService.Controllers
 {
-    public class Basket
+    public class Basket : Entity
     {
-        public int Id { get; set; }
         public List<LineItem> LineItems { get; set; }
     }
 }
