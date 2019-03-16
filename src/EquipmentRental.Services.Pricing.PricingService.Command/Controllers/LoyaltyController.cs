@@ -10,12 +10,12 @@ namespace EquipmentRental.Services.Pricing.PricingService.Command.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class FeeController : ControllerBase
+    public class LoyaltyController : ControllerBase
     {
         private readonly ICommandSender _commandSender;
-        private readonly IFeeRepository _repository;
+        private readonly ILoyaltyRepository _repository;
 
-        public FeeController(ICommandSender commandSender, IFeeRepository repository)
+        public LoyaltyController(ICommandSender commandSender, ILoyaltyRepository repository)
         {
             _commandSender = commandSender;
             _repository = repository;
@@ -26,15 +26,6 @@ namespace EquipmentRental.Services.Pricing.PricingService.Command.Controllers
         {
             await _commandSender.Send(new CreateFeeCommand(Guid.NewGuid(), createFeeModel.FeeId, createFeeModel.Tag,
                 createFeeModel.Cost));
-            return Ok();
-        }
-
-        [HttpPatch]
-        public async Task<IActionResult> UpdateCost([FromBody] UpdateFeeModel updateFeeModel)
-        {
-            var feeAggregateId = _repository.GetById(updateFeeModel.FeeId).AggregateId;
-
-            await _commandSender.Send(new UpdateFeeCostCommand(feeAggregateId, updateFeeModel.FeeId, updateFeeModel.Cost));
             return Ok();
         }
     }

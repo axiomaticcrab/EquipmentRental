@@ -51,6 +51,7 @@ namespace EquipmentRental.Services.Pricing.PricingService.Command
 
             
             services.AddScoped<IFeeRepository>(y => new FeeRepository(redis));
+            services.AddScoped<ILoyaltyRepository>(y => new LoyaltyRepository(redis));
             services.AddScoped<IRepository>(y => new CacheRepository(new Repository(y.GetService<IEventStore>()), y.GetService<IEventStore>(), y.GetService<ICache>()));
             services.AddScoped<IRepository>(y => new CacheRepository(new Repository(y.GetService<IEventStore>()), y.GetService<IEventStore>(), y.GetService<ICache>()));
 

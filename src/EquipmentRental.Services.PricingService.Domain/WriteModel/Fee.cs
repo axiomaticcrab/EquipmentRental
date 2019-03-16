@@ -6,7 +6,7 @@ namespace EquipmentRental.Services.PricingService.Domain.WriteModel
 {
     public class Fee : AggregateRoot
     {
-        private int _feeId;
+        private  int _feeId;
         private string _tag;
         private int _cost;
 

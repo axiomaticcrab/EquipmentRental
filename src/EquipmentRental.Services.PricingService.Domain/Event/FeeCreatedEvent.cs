@@ -1,4 +1,5 @@
 ﻿using System;
+using EquipmentRental.Services.PricingService.Domain.WriteModel;
 
 namespace EquipmentRental.Services.PricingService.Domain.Event
 {
@@ -29,6 +30,21 @@ namespace EquipmentRental.Services.PricingService.Domain.Event
             FeeId = feeId;
             OldCost = oldCost;
             NewCost = newCost;
+        }
+    }
+
+    public class LoyaltyCreatedEvent : BaseEvent
+    {
+        public readonly int LoyaltyId;
+        public readonly EquipmentType EquipmentType;
+        public readonly int Points;
+
+        public LoyaltyCreatedEvent(Guid id, int loyaltyId, EquipmentType equipmentType,int points)
+        {
+            Id = id;
+            LoyaltyId = loyaltyId;
+            EquipmentType = equipmentType;
+            Points = points;
         }
     }
 }

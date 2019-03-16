@@ -9,12 +9,10 @@ namespace EquipmentRental.Services.PricingService.Domain.EventHandler
     public class FeeEventHandler : IEventHandler<FeeCreatedEvent>, IEventHandler<FeeCostChangedEvent>
     {
         private readonly IFeeRepository _repository;
-        private readonly IFeeRepository _feeRepository;
 
-        public FeeEventHandler(IFeeRepository repository, IFeeRepository feeRepository)
+        public FeeEventHandler(IFeeRepository repository)
         {
             _repository = repository;
-            _feeRepository = feeRepository;
         }
 
         public Task Handle(FeeCreatedEvent message)
@@ -31,9 +29,31 @@ namespace EquipmentRental.Services.PricingService.Domain.EventHandler
 
         public Task Handle(FeeCostChangedEvent message)
         {
-            var fee = _feeRepository.GetById(message.FeeId);
+            var fee = _repository.GetById(message.FeeId);
             fee.Cost = message.NewCost;
             _repository.Save(fee);
+            return Task.CompletedTask;
+        }
+    }
+
+    public class LoyaltyEventHandler : IEventHandler<LoyaltyCreatedEvent>
+    {
+        private readonly ILoyaltyRepository _repository;
+
+        public LoyaltyEventHandler(ILoyaltyRepository repository)
+        {
+            _repository = repository;
+        }
+
+        public Task Handle(LoyaltyCreatedEvent message)
+        {
+            _repository.Save(new LoyaltyReadModel
+            {
+                AggregateId = message.Id,
+                EquipmentType = message.EquipmentType,
+                Points = message.Points,
+                EntityId = message.LoyaltyId
+            });
             return Task.CompletedTask;
         }
     }

@@ -16,4 +16,8 @@
     <PackageReference Include="Scrutor" Version="3.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\EquipmentRental.Services.PricingService.Domain\EquipmentRental.Services.PricingService.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

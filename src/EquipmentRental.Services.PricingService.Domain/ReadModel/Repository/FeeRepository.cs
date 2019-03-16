@@ -11,4 +11,11 @@ namespace EquipmentRental.Services.PricingService.Domain.ReadModel
         {
         }
     }
+
+    public class LoyaltyRepository : RedisRepository<LoyaltyReadModel>, ILoyaltyRepository
+    {
+        public LoyaltyRepository(IConnectionMultiplexer redis) : base(redis, "loyalty")
+        {
+        }
+    }
 }
