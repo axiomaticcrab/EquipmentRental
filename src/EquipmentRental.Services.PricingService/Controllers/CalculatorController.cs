@@ -15,9 +15,9 @@ namespace EquipmentRental.Services.PricingService.Controllers
         private readonly IFeeRepository _feeRepository;
         private readonly IPricingRepository _pricingRepository;
         private readonly ILoyaltyRepository _loyaltyRepository;
-        private readonly EquipmentService _equipmentService;
+        private readonly IEquipmentService _equipmentService;
 
-        public CalculatorController(IFeeRepository feeFeeRepository, IPricingRepository pricingRepository, ILoyaltyRepository loyaltyRepository, EquipmentService equipmentService)
+        public CalculatorController(IFeeRepository feeFeeRepository, IPricingRepository pricingRepository, ILoyaltyRepository loyaltyRepository, IEquipmentService equipmentService)
         {
             _feeRepository = feeFeeRepository;
             _pricingRepository = pricingRepository;

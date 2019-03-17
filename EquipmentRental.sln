@@ -25,6 +25,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EquipmentRental.Services.Pr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EquipmentRental.Services.Pricing.PricingService.Command", "src\EquipmentRental.Services.Pricing.PricingService.Command\EquipmentRental.Services.Pricing.PricingService.Command.csproj", "{CCAE5EDE-A835-48B6-90BA-181E30F973AB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EquipmentRental.Service.Pricing.UnitTests", "src\EquipmentRental.Service.Pricing.UnitTests\EquipmentRental.Service.Pricing.UnitTests.csproj", "{E14DECB0-D6FB-473D-8D64-208F8481C8DB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{CCAE5EDE-A835-48B6-90BA-181E30F973AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CCAE5EDE-A835-48B6-90BA-181E30F973AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CCAE5EDE-A835-48B6-90BA-181E30F973AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E14DECB0-D6FB-473D-8D64-208F8481C8DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E14DECB0-D6FB-473D-8D64-208F8481C8DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E14DECB0-D6FB-473D-8D64-208F8481C8DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E14DECB0-D6FB-473D-8D64-208F8481C8DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -75,6 +81,7 @@ Global
 		{E340A42C-7B4B-4C34-9BB5-846757DB4B08} = {552EF44A-9E62-404C-947A-37A23BC2C566}
 		{3141A499-3492-425B-8D93-509ADC7EC569} = {E340A42C-7B4B-4C34-9BB5-846757DB4B08}
 		{CCAE5EDE-A835-48B6-90BA-181E30F973AB} = {E340A42C-7B4B-4C34-9BB5-846757DB4B08}
+		{E14DECB0-D6FB-473D-8D64-208F8481C8DB} = {E340A42C-7B4B-4C34-9BB5-846757DB4B08}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B49E1B54-7A72-42FF-9FDE-49D1292D82B0}

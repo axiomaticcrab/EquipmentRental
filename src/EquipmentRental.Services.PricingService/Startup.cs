@@ -30,7 +30,7 @@ namespace EquipmentRental.Services.PricingService
             services.AddScoped<ILoyaltyRepository>(y => new LoyaltyRepository(redis));
             services.AddScoped<IPricingRepository>(y => new PricingRepository(redis));
 
-            services.AddHttpClient<EquipmentService>();
+            services.AddHttpClient<IEquipmentService, EquipmentService>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             return services.BuildServiceProvider();

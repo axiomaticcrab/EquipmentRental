@@ -5,7 +5,12 @@ using System.Threading.Tasks;
 
 namespace EquipmentRental.Services.PricingService.Services
 {
-    public class EquipmentService
+    public interface IEquipmentService
+    {
+        Task<List<EquipmentModel>> GetEquipments();
+    }
+
+    public class EquipmentService : IEquipmentService
     {
         private readonly HttpClient _client;
 
