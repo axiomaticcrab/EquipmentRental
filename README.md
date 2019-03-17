@@ -12,5 +12,8 @@ B)
   
 * Also be sure that docker deamon experimental feautes are enabled.
 
+
+
+
+
 ![Alt text](/overall-architecture.png?raw=true "Overall Architecture")
-<img src="https://github.com/axiomaticcrab/EquipmentRental/blob/master/overall-architecture.png"/>
