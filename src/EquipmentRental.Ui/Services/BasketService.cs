@@ -35,6 +35,8 @@ namespace EquipmentRental.Ui.Services
             await _client.PutAsync("/api/basket",
                 new StringContent(JsonConvert.SerializeObject(basketModel), Encoding.UTF8, "application/json"));
 
+            response.EnsureSuccessStatusCode();
+
             return await response.Content.ReadAsAsync<BasketModel>();
         }
     }

@@ -22,7 +22,8 @@ namespace EquipmentRental.Ui
         {
             services.AddHttpClient<BasketService>();
             services.AddHttpClient<EquipmentService>();
-            services.AddHttpClient<PricingService>();
+            services.AddHttpClient<PricingCommandService>();
+            services.AddHttpClient<PricingReadService>();
 
             services.Configure<CookiePolicyOptions>(options =>
             {
@@ -34,7 +35,7 @@ namespace EquipmentRental.Ui
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             var provider =  services.BuildServiceProvider();
 
-            ((PricingService) provider.GetService(typeof(PricingService))).InitPricingService();
+            ((PricingCommandService) provider.GetService(typeof(PricingCommandService))).InitPricingService();
             return provider;
 
         }
